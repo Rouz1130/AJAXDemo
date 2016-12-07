@@ -38,12 +38,24 @@ namespace AjaxDemo.Controllers
         {
             return View();
         }
-
+        // RandomDestinationList: Parameters passed to actions need to match the name attribute in the corresponding name input tag.
+        //destinationcount to generat a list of random destinations named randomDestinationList.
+        // we returned the list as a JSON formatted response.
         public IActionResult RandomDestinationList(int destinationCount)
         {
             var randomDestinationList = db.Destinations.OrderBy(r => Guid.NewGuid()).Take(destinationCount);
             return Json(randomDestinationList);
         }
+        [HttpPost]
+        public IActionResult NewDestination(string newCity, string newCountry)
+        {
+            Destination newDestination = new Destination(newCity, newCountry);
+
+            db.Destinations.Add(newDestination);
+            db.SaveChanges();
+            return Json(newDestination);
+        }
     }
+
 
 }

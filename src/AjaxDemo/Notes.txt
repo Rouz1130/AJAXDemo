@@ -27,7 +27,10 @@ add the action to the controller(HomeController.cs), which will be where the req
 	-Return types: until this point we have always returned Views(), Know with AJAX we will return return Content
 
 contentType: example using Json file /contentType says what kind of data we are sending to the server
+
 dataType: says what type of data we expect back from the server
+
+serialize() method turns data submitted from the form into a format that can be used by the controller
 
 3:Using JSON response to display an object
 	-use a JSON response to display an object from the server. below is how to do so:
@@ -37,5 +40,15 @@ dataType: says what type of data we expect back from the server
 
 Rendering a partial view:
 -Allows us not too naviagate too a different route to view something e.g Retrun View().
-- 
 
+GET request with Entity Framework
+	-Example is the RandomDestinationList: 
+	-Add the Index html code: then add the RandomDestinationList
+	-to do so you add using System, and System.Linq: also add 
+		private AjaxDemoContext db = new AjaxDemoContext();/-named db to give the controller access to the database.
+
+	-RandomDestinationList action takes the integer destinationCount as a parameter and uses some Linq syntax to generate a list of random destinations
+	-Linq syntax= (OrderBy(r => Guid.NewGuid()) also it randomizes their order of all the destinations in the table.
+	-Guid: is a data type that uniquely identifes an item and assures we are getting a radnom order.
+	-Take says how many of them to put in randomDestinationList).
+	-destinationCount: parameter name matches name we gave to the form's input field in Index.cshtml.
