@@ -1,0 +1,41 @@
+﻿1:
+SCRIPT TAGS for AJAX using JQuery
+- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	this tag always follow link for JQuery above
+--<script type="text/javascript">
+
+
+Basic AJAX response:
+-first thing we need to do is define a DOM element that is enabled to use AJAX.
+
+
+
+
+2:
+$.ajax() has a number of parameters
+
+type: this is also known as the HTTP method, which will be GET in this case.
+
+url: this is the URL to which the request is sent. We've sent it to the HelloAjax action in HomeController, which we still need to create. Another way of writing this would be url: '/Home/HelloAjax'.
+
+success: this is a function that is called if the request is successful. It takes an argument result, which is whatever is returned from the request.
+
+data :data, which is the data to be sent to the server.
+
+add the action to the controller(HomeController.cs), which will be where the request is sent. the Action in this case is .'hello-ajax'
+	-Return types: until this point we have always returned Views(), Know with AJAX we will return return Content
+
+contentType: example using Json file /contentType says what kind of data we are sending to the server
+dataType: says what type of data we expect back from the server
+
+3:Using JSON response to display an object
+	-use a JSON response to display an object from the server. below is how to do so:
+	-Add a class to a model folder
+	- Add section to Html
+	-Add Action to the controller
+
+Rendering a partial view:
+-Allows us not too naviagate too a different route to view something e.g Retrun View().
+- 
+
